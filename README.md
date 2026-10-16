@@ -24,8 +24,6 @@ ProbeRequestDataset_AGH2026/
 
 ## Devices
 
-Operating system versions are supplied dataset metadata. Total Frames is the sum of frames in the five PCAP files for each device.
-
 | ID | Manufacturer | Model | Operating System | Total Frames |
 |---|---|---|---|---:|
 | A | Samsung | Galaxy A16 | Android 16 | 774 |
@@ -50,11 +48,3 @@ Operating system versions are supplied dataset metadata. Total Frames is the sum
 | T | Apple | iPhone 16 Pro | iOS 26.5 | 570 |
 | U | Apple | iPhone 17 | iOS 26.6 | 481 |
 | **Total** | | | | **23915** |
-
-## Opening the captures
-
-Open any `.pcap` file in Wireshark to inspect its frames. To display Wi-Fi probe requests, use the display filter:
-
-```text
-wlan.fc.type_subtype == 0x04
-```
