@@ -1,0 +1,5 @@
+.DS_Store
+._*
+
+# Local reference table; excluded from publication.
+/tabela_urzadzen.tex
