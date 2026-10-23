@@ -4,7 +4,7 @@ A dataset of Wi-Fi Probe Request captures from **23 mobile devices**, containing
 
 ## Dataset structure
 
-Each directory (`A`–`W`) corresponds to the device with the matching ID in the table below. Each device directory contains five capture files: `1.pcap`, `2.pcap`, `3.pcap`, `4.pcap`, and `5.pcap`. File numbers distinguish captures within a device directory; they do not encode measurement conditions.
+Each directory (`A`–`W`) corresponds to the device with the matching ID in the table below. Each device directory contains five capture files: `1.pcap`, `2.pcap`, `3.pcap`, `4.pcap`, and `5.pcap`.
 
 ```text
 ProbeRequestDataset_AGH2026/
@@ -23,8 +23,6 @@ ProbeRequestDataset_AGH2026/
 ```
 
 ## Devices
-
-Manufacturer, model, and operating system versions are supplied measurement metadata. POCO and Redmi devices are listed under Xiaomi, with their brands retained in the model names. Total Frames is the sum of records in the five PCAP files for each device, verified directly against the captures.
 
 | ID | Manufacturer | Model | Operating System | Total Frames |
 |---|---|---|---|---:|
@@ -52,17 +50,3 @@ Manufacturer, model, and operating system versions are supplied measurement meta
 | V | Samsung | Galaxy S21 | Android 15 | 1307 |
 | W | Apple | iPhone 14 | iOS 27 | 400 |
 | **Total** | | | | **24421** |
-
-## Capture format and verification
-
-All 115 files use the PCAP format with Radiotap headers. All 24,421 records are Wi-Fi Probe Request frames. Their source addresses are unicast addresses with the locally administered (U/L) bit set. This is consistent with possible MAC address randomization, but does not prove it. Counts refer to frames, not unique MAC addresses.
-
-Directory labels provide the supplied device assignment; they do not independently establish that every frame originated from that device.
-
-## Opening the captures
-
-Open any `.pcap` file in Wireshark to inspect its frames. To display Wi-Fi Probe Requests, use the display filter:
-
-```text
-wlan.fc.type_subtype == 0x04
-```
